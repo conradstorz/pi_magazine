@@ -18,7 +18,10 @@ GPIO.setup(SERVO_PIN, GPIO.OUT)
 pwm = GPIO.PWM(SERVO_PIN, 100) # start PWM at 100 Hz
 pwm.start(0)
 
-squid = Squid(18, 23, 24)
+SQUID_GPIO_RED = 18
+SQUID_GPIO_BLUE = 23
+SQUID_GPIO_GREEN = 24
+squid = Squid(SQUID_GPIO_RED, SQUID_GPIO_GREEN, SQUID_GPIO_BLUE)
 
 def map_ping_to_angle(ping_time):
     # ping timeout of 1000 ms sets maximum
@@ -56,10 +59,9 @@ try:
     	elif p < GOOD_PING:
         	squid.set_color(GREEN)
     	elif p < OK_PING:
-        	squid.set_color((50, 15, 0)) # Orange
+        	squid.set_color(ORANGE)
     	else:
         	squid.set_color(RED)
     	time.sleep(PING_PERIOD)
 finally:
 	GPIO.cleanup()
-    
