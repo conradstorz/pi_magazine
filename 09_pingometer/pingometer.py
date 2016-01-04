@@ -1,5 +1,14 @@
-import subprocess, time
-import RPi.GPIO as GPIO
+import subprocess
+import time
+import sys
+
+try:
+    import RPi.GPIO as GPIO
+except ImportError:
+    print 'CODE ERROR:'
+    print 'Raspberry Pi compatible GPIO required for this code.'
+    sys.exit(-1)
+
 from squid import *
 
 HOSTNAME = "us.mineplex.com"
