@@ -12,7 +12,8 @@ except ImportError:
 from squid import *
 
 HOSTS_LIST = ["www.google.com", 'www.facebook.com', 'www.twitter.com', 'www.yahoo.com', 
-                'www.microsoft.com', 'www.amazon.com', 'www.chase.com']
+                'www.linkedin.com', 'www.amazon.com', 'www.ebay.com', 'www.live.com',
+                'www.wikipedia.org', 'www.apple.com', 'www.reddit.com', 'www.wordpress.com']
 # HOSTNAME = "google.com"
 PING_PERIOD = 3.0 # seconds
 GOOD_PING = 0.1   # seconds
