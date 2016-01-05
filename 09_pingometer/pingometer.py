@@ -61,19 +61,22 @@ def ping(hostname):
 
 try:
     while True:
+        total_ping = 0
         for host in HOSTS_LIST:
-            p = ping(host)
-            # p = input("ping=")  # Use for testing
-            print(p)
-            set_angle(map_ping_to_angle(p))
-            if p == -1 :
-                squid.set_color(BLUE)
-            elif p < GOOD_PING:
-                squid.set_color(GREEN)
-            elif p < OK_PING:
-                squid.set_color(ORANGE)
-            else:
-                squid.set_color(RED)
-            time.sleep(PING_PERIOD)
+            total_ping += ping(host)
+        # p = input("ping=")  # Use for testing
+        print(total_ping)
+        avg_ping = total_ping / len(HOSTS_LIST)
+        print(avg_ping)
+        set_angle(map_ping_to_angle(avg_ping))
+        if avg_ping == -1 :
+            squid.set_color(BLUE)
+        elif avg_ping < GOOD_PING:
+            squid.set_color(GREEN)
+        elif avg_ping < OK_PING:
+            squid.set_color(ORANGE)
+        else:
+            squid.set_color(RED)
+        time.sleep(PING_PERIOD)
 finally:
     GPIO.cleanup()
