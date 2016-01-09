@@ -34,6 +34,8 @@ SQUID_GPIO_BLUE = 23
 SQUID_GPIO_GREEN = 24
 squid = Squid(SQUID_GPIO_RED, SQUID_GPIO_GREEN, SQUID_GPIO_BLUE)
 
+test_outputs = False
+
 def map_ping_to_angle(ping_time):
     # ping timeout of 1000 ms sets maximum
     # ping min of 0
@@ -59,7 +61,22 @@ def ping(hostname):
     except:
         return 1
 
+def display_status(ping):
+    if ping == -1 :
+        squid.set_color(BLUE)
+    elif ping < GOOD_PING:
+        squid.set_color(GREEN)
+    elif ping < OK_PING:
+        squid.set_color(ORANGE)
+    else:
+        squid.set_color(RED)
+
 try:
+    if test_outputs:
+        for x in range(10):
+            set_angle(map_ping_to_angle(x))
+            display_status(x)
+            
     while True:
         total_ping = 0
         for host in HOSTS_LIST:
@@ -69,14 +86,7 @@ try:
         avg_ping = total_ping / len(HOSTS_LIST)
         print(avg_ping)
         set_angle(map_ping_to_angle(avg_ping))
-        if avg_ping == -1 :
-            squid.set_color(BLUE)
-        elif avg_ping < GOOD_PING:
-            squid.set_color(GREEN)
-        elif avg_ping < OK_PING:
-            squid.set_color(ORANGE)
-        else:
-            squid.set_color(RED)
+        display_status(avg_ping)
         time.sleep(PING_PERIOD)
 finally:
     GPIO.cleanup()
