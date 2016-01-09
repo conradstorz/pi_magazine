@@ -74,9 +74,10 @@ def display_status(ping):
 try:
     if test_outputs:
         for x in range(10):
-            print 'Test value: ', x / 100
-            set_angle(map_ping_to_angle(x / 100))
-            display_status(x / 100)
+            test_value = float(x / 100)
+            print 'Test value: ', test_value
+            set_angle(map_ping_to_angle(test_value))
+            display_status(test_value)
             
     while True:
         total_ping = 0
