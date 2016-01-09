@@ -34,7 +34,7 @@ SQUID_GPIO_BLUE = 23
 SQUID_GPIO_GREEN = 24
 squid = Squid(SQUID_GPIO_RED, SQUID_GPIO_GREEN, SQUID_GPIO_BLUE)
 
-test_outputs = False
+test_outputs = True
 
 def map_ping_to_angle(ping_time):
     # ping timeout of 1000 ms sets maximum
