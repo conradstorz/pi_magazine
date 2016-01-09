@@ -74,6 +74,7 @@ def display_status(ping):
 try:
     if test_outputs:
         for x in range(10):
+            print 'Test value: ', x / 100
             set_angle(map_ping_to_angle(x / 100))
             display_status(x / 100)
             
