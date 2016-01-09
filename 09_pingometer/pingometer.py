@@ -74,8 +74,8 @@ def display_status(ping):
 try:
     if test_outputs:
         for x in range(10):
-            set_angle(map_ping_to_angle(x))
-            display_status(x)
+            set_angle(map_ping_to_angle(x / 10))
+            display_status(x / 10)
             
     while True:
         total_ping = 0
