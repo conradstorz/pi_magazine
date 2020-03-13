@@ -56,7 +56,7 @@ strip.begin()
 set_all(strip, colors[0])
 strip.show()
 
-print 'Press Ctrl-C to quit.'
+print('Press Ctrl-C to quit.')
 
 while True:
     if GPIO.input(SWITCH_PIN) == False: # button pressed
