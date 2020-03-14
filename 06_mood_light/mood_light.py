@@ -16,12 +16,12 @@ LED_INVERT     = True    # True to invert the signal (when using NPN transistor 
 
 
 # Colors
-NO_COLOR = Color(0, 0, 0)
-MORNING_COLOR = Color(190, 190, 255)
-DAY_COLOR = Color(255, 255, 255)
-NIGHT_COLOR = Color(255, 190, 100)
-YELLOW = Color(255, 255, 0)
-DIM = Color(10, 10, 10)
+NO_COLOR = (0, 0, 0)
+MORNING_COLOR = (190, 190, 255)
+DAY_COLOR = (255, 255, 255)
+NIGHT_COLOR = (255, 190, 100)
+YELLOW = (255, 255, 0)
+DIM = (10, 10, 10)
 LONG_PRESS_THRESHOLD = 0.5
 
 colors = [NO_COLOR, MORNING_COLOR, DAY_COLOR, NIGHT_COLOR, YELLOW, DIM]
